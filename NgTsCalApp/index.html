@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>Calculator App</title>
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        </br>
+        </br>
+        </br>
+        <div class="row">
+
+            <div ng-controller="CalController as cctrl">
+                <div class="alert alert-danger" ng-show="cctrl.errormsg.length">
+                    <p ng-repeat="error in cctrl.errormsg">{{error}}</p>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label>First Number</label>
+                    <input type="text" ng-model="cctrl.calculator.firstNumber" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Second Number</label>
+                    <input type="text" ng-model="cctrl.calculator.secondNumber" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Result</label>
+                    <input type="text" ng-model="cctrl.result" readonly class="form-control">
+                </div>
+
+
+                <div class="btn-group">
+                    <button ng-click="cctrl.getResult('sum')" class="btn btn-lg btn-primary text-center">+</button>
+                    <button ng-click="cctrl.getResult('sub')" class="btn btn-lg btn-primary text-center">-</button>
+                    <button ng-click="cctrl.getResult('mul')" class="btn btn-lg btn-primary text-center">*</button>
+                    <button ng-click="cctrl.getResult('div')" class="btn btn-lg btn-primary text-center">/</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
