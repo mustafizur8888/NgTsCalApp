@@ -20,6 +20,11 @@
         }
     }
 
+    enum OperationType {
+        add,
+        subtract
+    }
+
     class CalController {
 
         calculator: Calculator;
@@ -30,6 +35,9 @@
 
         }
 
+        add() {
+            this.validation(OperationType.add);
+        }
 
         getResult(type: string) {
             this.errormsg = [];
@@ -41,7 +49,9 @@
             }
         }
 
-        validation(type: string): boolean {
+        validation(operationType: OperationType): boolean {
+
+
 
             if (!this.calculator.firstNumber) {
                 this.errormsg.push("First number is empty");
